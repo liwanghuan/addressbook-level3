@@ -58,17 +58,13 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public CommandResult execute() throws Exception{
+    public CommandResult execute() {
         try {
             addressBook.addPerson(toAdd);
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
-    }
-    @Override
-    public boolean isMutating() {
-        return true;
     }
 
 }
